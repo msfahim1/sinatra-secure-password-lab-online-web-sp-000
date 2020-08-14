@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    redirect '/failure' if !validate_username(params[:username]) #|| !!User.find_by(username: params[:username]) 
+    redirect '/failure' if !validate_username(params[:username]) #|| !!User.find_by(username: params[:username])
     @user = User.new(username: params[:username], password: params[:password], balance: 0)
     if !!@user.save
       # session[:user_id] = @user.id
